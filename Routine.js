@@ -6,17 +6,16 @@ import {
   Text,
   TouchableOpacity
 } from 'react-native';
-import Routine from './Routine'
 
 const rows = [
-  {id: '0', title: 'Day 1'},
-  {id: '1', title: 'Day 2'},
-  {id: '2', title: 'Day 3'},
-  {id: '3', title: 'Day 4'},
-  {id: '4', title: 'Day 5'},
+  {id: '0', title: 'Routine 1'},
+  {id: '1', title: 'Routine 2'},
+  {id: '2', title: 'Routine 3'},
+  {id: '3', title: 'Routine 4'},
+  {id: '4', title: 'Routine 5'},
 ]
 
-class WorkoutItem extends React.PureComponent {
+class RoutineItem extends React.PureComponent {
 
   _onPress = () => {
     this.props.onPressItem(this.props.id);
@@ -33,10 +32,10 @@ class WorkoutItem extends React.PureComponent {
   }
 }
 
-export default class Workouts extends Component {
+export default class Routine extends Component {
 
   _renderItem = ({item}) => (
-    <WorkoutItem
+    <RoutineItem
       id={item.id}
       onPressItem={this._onPressItem}
       title={item.title}
@@ -46,10 +45,7 @@ export default class Workouts extends Component {
   _keyExtractor = (item, index) => item.id;
 
   _onPressItem = (id) => {
-    this.props.navigator.push({
-      title: 'Routine',
-      component: Routine
-    });
+    console.log(id)
   };
 
   render() {
